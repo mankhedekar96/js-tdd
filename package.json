@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "JS TDD assessment",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "yarn test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,9 @@
   },
   "homepage": "https://github.com/mankhedekar96/js-tdd#readme",
   "devDependencies": {
+    "@babel/core": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
+    "babel-jest": "^29.7.0",
     "jest": "^26.0.1"
   }
 }
