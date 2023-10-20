@@ -6,5 +6,7 @@ describe('String calculator', () => {
     });
     it('returns same number if got single number string as parameter', () => {
         expect(add('1')).toEqual(1);
+        expect(add('12')).toEqual(12);
+        expect(add('123')).toEqual(123);
     });
 });
