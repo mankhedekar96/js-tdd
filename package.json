@@ -1,0 +1,22 @@
+{
+  "name": "js-tdd",
+  "version": "1.0.0",
+  "description": "JS TDD assessment",
+  "main": "index.js",
+  "scripts": {
+    "test": "yarn test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mankhedekar96/js-tdd.git"
+  },
+  "author": "Manish Khedekar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mankhedekar96/js-tdd/issues"
+  },
+  "homepage": "https://github.com/mankhedekar96/js-tdd#readme",
+  "devDependencies": {
+    "jest": "^26.0.1"
+  }
+}
