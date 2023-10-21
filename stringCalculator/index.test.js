@@ -38,4 +38,8 @@ describe('String calculator', () => {
         expect(() => add('//;\n1;-2;-3')).toThrow(Error);
         expect(() => add('//;\n1;-2;-3')).toThrow('negatives not allowed : -2,-3');
     });
+    it('ignores the number bigger than 1000 and return the sum', () => {
+        expect(add('1,2,1001')).toEqual(3);
+        expect(add('1,2,3,1001')).toEqual(6);
+    });
 });
