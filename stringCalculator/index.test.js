@@ -21,4 +21,8 @@ describe('String calculator', () => {
         expect(add('//;\n1;2')).toEqual(3);
         expect(add('//;\n1;2;3')).toEqual(6);
     });
+    it('throws exception for negative numbers', () => {
+        expect(add('//;\n1;2')).toEqual(3);
+        expect(add('//;\n1;2;3')).toEqual(6);
+    });
 });
