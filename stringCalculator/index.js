@@ -5,7 +5,7 @@ function add(str) {
     // check if string has delimiter
     let delimiter;
     if(str.includes('//')) {
-        delimiter = str.split('\n')[0][2];
+        delimiter = str.split('\n')[0].slice(2);
         str = str.split('\n')[1];
     }
     if(delimiter) str = str.replaceAll(delimiter, ',');
