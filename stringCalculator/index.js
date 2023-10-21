@@ -3,12 +3,14 @@ function add(str) {
     if(str === '') return 0;
 
     // check if string has delimiter
-    let delimiter;
+    let delimiters;
     if(str.includes('//')) {
-        delimiter = str.split('\n')[0].slice(2);
+        delimiters = Array.from(new Set(str.split('\n')[0].slice(2).split('')));
         str = str.split('\n')[1];
     }
-    if(delimiter) str = str.replaceAll(delimiter, ',');
+    if(delimiters) {
+        for(let delimiter of delimiters) str = str.replaceAll(delimiter, ',');
+    }
 
     // check if string has \n and replace it with ,
     if(str.includes('\n')) str = str.replaceAll('\n', ',');
