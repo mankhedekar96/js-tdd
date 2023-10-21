@@ -14,7 +14,7 @@ function add(str) {
     if(str.includes('\n')) str = str.replaceAll('\n', ',');
 
     // spliting string into array using , delimiter
-    const arrayOfNumbers = str.split(',').map(Number);
+    const arrayOfNumbers = str.split(',').map(Number).filter(num => num <= 1000);
 
     // check if there are negatives
     const arrayOfNegatives = arrayOfNumbers.filter(num => num < 0);
