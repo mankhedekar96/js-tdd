@@ -37,6 +37,18 @@ describe('String calculator', () => {
         // delimiters
         expect(() => add('//;\n1;-2;-3')).toThrow(Error);
         expect(() => add('//;\n1;-2;-3')).toThrow('negatives not allowed : -2,-3');
+
+        // long delimiters
+        expect(() => add('//;;;\n1;;;-2;;;-3')).toThrow(Error);
+        expect(() => add('//;;;\n1;;;-2;;;-3')).toThrow('negatives not allowed : -2,-3');
+
+        // multiple delimiters
+        expect(() => add('//;*?\n1;-2*-3?-4')).toThrow(Error);
+        expect(() => add('//;*?\n1;-2*-3?-4')).toThrow('negatives not allowed : -2,-3,-4');
+
+        // multiple long delimiters
+        expect(() => add('//;;;***???\n1;;;-2***-3???-4')).toThrow(Error);
+        expect(() => add('//;;;***???\n1;;;-2***-3???-4')).toThrow('negatives not allowed : -2,-3,-4');
     });
     it('ignores the number bigger than 1000 and return the sum', () => {
         expect(add('1,2,1001')).toEqual(3);
@@ -49,5 +61,9 @@ describe('String calculator', () => {
     it('allows multiple delimiters and return the sum', () => {
         expect(add('//*;\n1*2;3')).toEqual(6);
         expect(add('//*;?\n1*2;3?4')).toEqual(10);
+    });
+    it('allows multiple long delimiters and return the sum', () => {
+        expect(add('//***;;;\n1***2;;;3')).toEqual(6);
+        expect(add('//**;;;???\n1**2;;;3???4')).toEqual(10);
     });
 });
