@@ -46,4 +46,8 @@ describe('String calculator', () => {
         expect(add('//***\n1***2')).toEqual(3);
         expect(add('//***\n1***2***3')).toEqual(6);
     });
+    it('allows multiple delimiters and return the sum', () => {
+        expect(add('//*;\n1*2;3')).toEqual(6);
+        expect(add('//*;?\n1*2;3?4')).toEqual(10);
+    });
 });
