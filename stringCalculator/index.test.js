@@ -9,4 +9,8 @@ describe('String calculator', () => {
         expect(add('12')).toEqual(12);
         expect(add('123')).toEqual(123);
     });
+    it('returns sum for multiple numbers string with commas as parameter', () => {
+        expect(add('1,2')).toEqual(3);
+        expect(add('1,2,3')).toEqual(6);
+    });
 });
