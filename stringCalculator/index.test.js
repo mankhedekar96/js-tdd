@@ -17,4 +17,8 @@ describe('String calculator', () => {
         expect(add('1\n2')).toEqual(3);
         expect(add('1\n2,3')).toEqual(6);
     });
+    it('returns sum for multiple numbers string with delimiters', () => {
+        expect(add('//;\n1;2')).toEqual(3);
+        expect(add('//;\n1;2;3')).toEqual(6);
+    });
 });
