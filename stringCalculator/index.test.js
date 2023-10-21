@@ -22,7 +22,20 @@ describe('String calculator', () => {
         expect(add('//;\n1;2;3')).toEqual(6);
     });
     it('throws exception for negative numbers', () => {
-        expect(add('//;\n1;2')).toEqual(3);
-        expect(add('//;\n1;2;3')).toEqual(6);
+        // single negative
+        expect(() => add('-1')).toThrow(Error);
+        expect(() => add('-1')).toThrow('negatives not allowed : -1');
+
+        // multiple negatives
+        expect(() => add('-1,2,-3')).toThrow(Error);
+        expect(() => add('-1,2,-3')).toThrow('negatives not allowed : -1,-3');
+
+        // multiple negatives with next line
+        expect(() => add('-1\n2\n-3')).toThrow(Error);
+        expect(() => add('-1\n2\n-3')).toThrow('negatives not allowed : -1,-3');
+
+        // delimiters
+        expect(() => add('//;\n1;-2;-3')).toThrow(Error);
+        expect(() => add('//;\n1;-2;-3')).toThrow('negatives not allowed : -2,-3');
     });
 });

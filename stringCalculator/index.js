@@ -14,9 +14,14 @@ function add(str) {
     if(str.includes('\n')) str = str.replaceAll('\n', ',');
 
     // spliting string into array using , delimiter
-    const arrayOfNumbers = str.split(',');
+    const arrayOfNumbers = str.split(',').map(Number);
+
+    // check if there are negatives
+    const arrayOfNegatives = arrayOfNumbers.filter(num => num < 0);
+    if(arrayOfNegatives.length) throw new Error("negatives not allowed : " + arrayOfNegatives.join(','));
+
     if(arrayOfNumbers.length === 1) return Number(arrayOfNumbers[0]);
-    return arrayOfNumbers.map(Number).reduce((acc, val) => acc + val, 0);
+    return arrayOfNumbers.reduce((acc, val) => acc + val, 0);
 }
 
 export default add;
