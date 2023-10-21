@@ -42,4 +42,8 @@ describe('String calculator', () => {
         expect(add('1,2,1001')).toEqual(3);
         expect(add('1,2,3,1001')).toEqual(6);
     });
+    it('allows delimiters of any length and return the sum', () => {
+        expect(add('//;;\n1;;2')).toEqual(3);
+        expect(add('//;;\n1;;2;;3')).toEqual(6);
+    });
 });
